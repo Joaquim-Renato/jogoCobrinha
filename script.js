@@ -10,12 +10,14 @@ let food = { x: 0, y: 0 };
 let dx = scale;
 let dy = 0;
 let score = 0;
+let interval = 200; // Intervalo inicial em milissegundos
+let gameInterval;
 
 function setup() {
     snake[0] = { x: canvas.width / 2, y: canvas.height / 2 };
     placeFood();
     document.addEventListener('keydown', changeDirection);
-    setInterval(gameLoop, 100);
+    gameInterval = setInterval(gameLoop, interval);
 }
 
 function gameLoop() {
